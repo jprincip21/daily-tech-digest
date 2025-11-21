@@ -7,7 +7,10 @@ def main():
         config = json.load(f)
 
     api_key = config["api_key"] # Create a json file with your api key inside to use "api_key": *key*
-    url = "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=" + api_key
+    url = "https://newsapi.org/v2/top-headlines" \
+            + "?sources=techcrunch" \
+            + "&apiKey=" + api_key \
+            + "&language=en"
 
     # Make Request
     request = requests.get(url)
@@ -15,12 +18,14 @@ def main():
     # Get Dictionary with data
     content = request.json()
 
-    message = ""
+    message = "Subject: Today's News" + "\n"
 
     # Access articles titles and descriptions
-    for article in content["articles"]:
+    for article in content["articles"][:20]: # Will only send up to 20 articles
         if article["title"] is not None:
-            message = message + article["title"] + "\n" + article["description"] + 2*"\n"
+            message = message + article["title"] + "\n" \
+                    + article["description"] + "\n" \
+                    + article["url"] + 2*"\n"
 
     message = message.encode("utf-8")
     send_email.send_email(message)
