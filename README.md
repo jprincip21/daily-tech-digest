@@ -33,18 +33,17 @@ Inside the project folder, create a file named config.json:
 ```
 Where to get credentials:
 
-NewsAPI Key:
-https://newsapi.org
+- NewsAPI Key: https://newsapi.org
 
-Gmail App Password:
+- Gmail App Password:
 
-Enable 2-Step Verification
+  - Enable 2-Step Verification
 
-Visit https://myaccount.google.com/apppasswords
+  - Visit https://myaccount.google.com/apppasswords
 
-Generate a 16-character password
+  - Generate a 16-character password
 
-Place it in "email_password"
+  - Place it in "email_password"
 
 ---
 
